@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice Board</title>
+</head>
+<scr>
+    <div class="main">
+        <p class="notice-text" id="notice-text">
+            Sample Content
+        </p>
+    </div>
+    <style>
+        .notice-text {
+            font-size: 40px;
+            text-align: center;
+        }
+    </style>
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        socket.on('board_content',function(msg){
+            document.getElementById('notice-text').innerHTML = msg;
+        });
+    </script>
+</body>
+</html>
